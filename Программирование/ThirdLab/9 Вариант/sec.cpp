@@ -1,0 +1,1 @@
+const double a = 0.1, b = 1.2, s = 0.1, t = 1.4;

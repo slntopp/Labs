@@ -6,7 +6,7 @@ $engine.context.include_library MathDefines.new
 
 def func_compute(equation, vars)
     for i in 0..vars.length - 1 do
-        $engine.evaluate("#{VARS[i]} = #{vars[i]}")
+        $engine.evaluate("#{VARS[i]} = (#{vars[i]})")
     end
     return $engine.evaluate(equation)
 end

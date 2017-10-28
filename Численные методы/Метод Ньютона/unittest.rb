@@ -3,7 +3,7 @@ require 'json'
 
 eq, x = JSON.parse(File.read('./eq.json'))[ARGV[0]], []
 for i in 1..(eq.size) do x << ARGV[i].to_f end
-
+puts x
 eq.each do | item |
     puts func_compute(item, x).to_f.round(9)
 end

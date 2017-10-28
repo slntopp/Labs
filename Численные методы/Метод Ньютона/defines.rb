@@ -12,5 +12,6 @@ class Array
         return self
     end
 end
+
 VARS = ['x', 'y', 'z', 'a', 'b', 'c']
-E = 0.00000000001
+E = 0.0000000000001

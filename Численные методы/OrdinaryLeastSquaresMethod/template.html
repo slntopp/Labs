@@ -1,0 +1,55 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      // google.charts.load('current', {'packages':['line']});
+      google.charts.load('current', {packages: ['corechart', 'line']});
+      google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+
+      var data = new google.visualization.DataTable();
+      data.addColumn('number', 'x');
+      data.addColumn('number', 'Исходные данные');
+      data.addColumn('number', 'После апроксимации');
+
+      data.addRows([
+###
+      ]);
+
+//       data.addColumn('number', 'Неявный');
+//       data.addRows([
+// %%%
+//       ])
+
+      var options = {
+        chart: {
+          title: 'Метод Наименьших Квадратов',
+        },
+        hAxis: {
+          title: 'X'
+        },
+        vAxis: {
+          title: 'Y'
+        },
+        width: 1080,
+        height: 720,
+        curveType: 'function',
+        axes: {
+          x: {
+            0: {side: 'bottom'}
+          }
+        }
+      };
+
+      var chart = new google.charts.Line(document.getElementById('curve_chart'));
+
+      chart.draw(data, google.charts.Line.convertOptions(options));
+    }
+  </script>
+</head>
+<body>
+  <div id="curve_chart"></div>
+</body>
+</html>

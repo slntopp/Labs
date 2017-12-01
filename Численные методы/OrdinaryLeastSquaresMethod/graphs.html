@@ -1,0 +1,76 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      // google.charts.load('current', {'packages':['line']});
+      google.charts.load('current', {packages: ['corechart', 'line']});
+      google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+
+      var data = new google.visualization.DataTable();
+      data.addColumn('number', 'x');
+      data.addColumn('number', 'Исходные данные');
+      data.addColumn('number', 'После апроксимации');
+
+      data.addRows([
+          [0, 1.00762, 1.00644556747601],
+          [5, 1.00392, 1.0041597402597437],
+          [10, 1.00153, 1.0022707031412528],
+          [15, 1, 1.0007525556975425],
+          [20, 0.99907, 0.9995793975056184],
+          [25, 0.99852, 0.9987253281424867],
+          [30, 0.99826, 0.9981644471851524],
+          [35, 0.99818, 0.9978708542106215],
+          [40, 0.99828, 0.9978186487958997],
+          [45, 0.99849, 0.9979819305179923],
+          [50, 0.99878, 0.9983347989539055],
+          [55, 0.99919, 0.9988513536806446],
+          [60, 0.99967, 0.9995056942752152],
+          [65, 1.00024, 1.0002719203146229],
+          [70, 1.00091, 1.0011241313758736],
+          [75, 1.00167, 1.0020364270359727],
+          [80, 1.00253, 1.0029829068719263],
+          [85, 1.00351, 1.0039376704607392],
+          [90, 1.00461, 1.004874817379418],
+          [95, 1.00586, 1.0057684472049677],
+          [100, 1.00721, 1.0065926595143944],
+
+      ]);
+
+//       data.addColumn('number', 'Неявный');
+//       data.addRows([
+// %%%
+//       ])
+
+      var options = {
+        chart: {
+          title: 'Метод Наименьших Квадратов',
+        },
+        hAxis: {
+          title: 'X'
+        },
+        vAxis: {
+          title: 'Y'
+        },
+        width: 1080,
+        height: 720,
+        curveType: 'function',
+        axes: {
+          x: {
+            0: {side: 'bottom'}
+          }
+        }
+      };
+
+      var chart = new google.charts.Line(document.getElementById('curve_chart'));
+
+      chart.draw(data, google.charts.Line.convertOptions(options));
+    }
+  </script>
+</head>
+<body>
+  <div id="curve_chart"></div>
+</body>
+</html>

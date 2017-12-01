@@ -1,7 +1,7 @@
 require 'pry'
 require 'json'
 require './art.rb'
-require './gauss.rb'
+require '../../include/gauss.rb'
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
 
 data, ex = JSON.parse(File.read('in.json')), ARGV[0] # Получение данных о матрицах А и b из JSON файла in.json и номера набора входных данных из консоли

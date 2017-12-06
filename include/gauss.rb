@@ -2,17 +2,15 @@ require 'matrix'
 
 def GetXbyGaussMethod(a, b, n, params = nil)
 
-    if Matrix[*a].det.abs < 0.000000001 then
-        puts "Ошибка! Матрица вырожденная: detA = #{Matrix[*a].det}"
-        puts "---------------------------------------"
-        Kernel.exit(1)
-    end
+    # if Matrix[*a].det.abs < 1e-12 then
+        # puts "Ошибка! Матрица вырожденная: detA = #{Matrix[*a].det}"
+        # puts "---------------------------------------"
+        # Kernel.exit(1)
+    # end
 
     full = a.make_full b # Создание массива с расширенной матрицей, метод make_full также описан в art.rb
+    full.map! { |e| e.map!{|ex| ex.to_f }}
     full.sort_by! { |item| item[0].abs } .reverse! # Сортировка матрицы по модулю значений первого столбца
-    b, a = full.divide # Разделение расширенной матрицы обратно на A и b, метод divide также описан в art.rb
-    
-    full = a.make_full b
 =begin
         Следующая конструкция есть ничто иное, как приведение матрицы к треугольному виду.
         Алгоритм будет выглядеть примерно так:
@@ -33,9 +31,8 @@ def GetXbyGaussMethod(a, b, n, params = nil)
             end
         end
     end
-    
+
     b, a = full.divide # Вновь разбиваем расширенную матрицу обратно в А и b
-    
 =begin
         Теперь, когда матрица приведена к треугольному виду, можно искать непосредственно корни. Для этого нужно выполнить обратный ход.
         Алгоритм:

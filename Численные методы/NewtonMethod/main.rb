@@ -1,4 +1,3 @@
-require 'pry'
 require 'json'
 require '../../include/gauss.rb'
 require './funcs.rb'
@@ -24,14 +23,14 @@ for i in 1..(eq.size) do
         break
     end
 end
-for i in 1..(eq.size) do x << ARGV[i].to_f end # Заполнение массива переменных начальными приближениями  
+for i in 1..(eq.size) do x << ARGV[i].to_f end # Заполнение массива переменных начальными приближениями
 old_x = x.max_by {|i| i.abs}
 puts "Система уравнений:" # Очевидно, вывод системы уравнений
 eq.each do | item |
     puts "> " + item
 end
 
-while delta do 
+while delta do
     break if iter == LIMIT # Выход из цикла в случае достижения ограничения итераций
     for i in 0..(b.size - 1) do # Заполнение вектора результатами подстановки начальных приближений в уравнения с обратным знаком
         b[i] = func_compute(eq[i], x) * (-1) # func_compute вычисляет уравнение данное первым параметром, с переменными данными во втором

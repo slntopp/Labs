@@ -1,0 +1,96 @@
+<html>
+    <head>
+      <meta charset="utf-8">
+      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+      <script type="text/javascript">
+          google.charts.load('current', {packages: ['corechart', 'line']});
+          google.charts.setOnLoadCallback(drawChart);
+    
+          function drawChart() {
+    
+          var data = new google.visualization.DataTable();
+          data.addColumn('string', 'Разбиение');
+          data.addColumn('number', 'Ручной подсчет');
+          data.addColumn('number', 'Формула Трапеций');
+          data.addColumn('number', 'Формула Трапеций Правильная');
+          data.addColumn('number', 'Формула Симпсона');
+          data.addColumn('number', 'Формула Симпсона правильная');
+    
+          data.addRows([
+              ###
+          ]);
+    
+          var options = {
+            chart: {
+              title: 'Метод Вычисления Определенных интегралов',
+            },
+            hAxis: {
+              title: 'Разбиение'
+            },
+            vAxis: {
+              title: 'Значение интеграла',
+              scaleType: 'log'
+            },
+            width: 1080,
+            height: 720,
+            curveType: 'function',
+            axes: {
+              x: {
+                0: {side: 'bottom'}
+              }
+            }
+          };
+    
+          var chart = new google.charts.Line(document.getElementById('curve_chart'));
+    
+          chart.draw(data, google.charts.Line.convertOptions(options));
+        }
+      </script>
+      <!-- <script type="text/javascript">
+              google.charts.load('current', {packages: ['corechart', 'line']});
+              google.charts.setOnLoadCallback(drawChart);
+        
+            function drawChart() {
+        
+              var data = new google.visualization.DataTable();
+              data.addColumn('string', 'Точность');
+              data.addColumn('number', 'Ручной подсчет');
+              data.addColumn('number', 'Формула Трапеций');
+              data.addColumn('number', 'Формула Трапеций Правильная');
+              data.addColumn('number', 'Формула Симпсона');
+              data.addColumn('number', 'Формула Симпсона правильная');
+        
+              data.addRows([
+        %%%
+              ]);
+        
+              var options = {
+                hAxis: {
+                  title: 'Точность'
+                },
+                vAxis: {
+                  title: 'Отклонение от значения интеграла',
+                  scaleType: 'log'
+                },
+                width: 1080,
+                height: 720,
+                curveType: 'function',
+                axes: {
+                  x: {
+                    0: {side: 'bottom'}
+                  }
+                }
+              };
+        
+              var chart = new google.charts.Line(document.getElementById('curve_chart_two'));
+        
+              chart.draw(data, google.charts.Line.convertOptions(options));
+            }
+      </script> -->
+    </head>
+    <body>
+      <div id="curve_chart"></div>
+      <div id="curve_chart_two"></div>
+    </body>
+    </html>
+    
